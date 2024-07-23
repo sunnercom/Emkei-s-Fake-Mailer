@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emkei's Fake Mailer</title>
+    <!-- Icon  -->
+    <link rel="stylesheet" href="">
+    <!-- custom css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- captcha -->
+    <script src="https://js.hcaptcha.com/1/api.js?hl=en&recaptchacompat=on" async defer></script>
+    <script src="/recaptcha.js" type="text/javascript"></script>
+    <!-- text editor -->
+    <script src="https://cdn.tiny.cloud/1/yu60pc7khv8zbzkafmnw3mhrlszfdb5jd0bfdkf45uz6d9ir/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <script>
+        tinymce.init({
+          selector: 'textarea',
+          plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed linkchecker a11ychecker tinymcespellchecker permanentpen powerpaste advtable advcode editimage advtemplate ai mentions tinycomments tableofcontents footnotes mergetags autocorrect typography inlinecss markdown',
+          toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+          tinycomments_mode: 'embedded',
+          tinycomments_author: 'Author name',
+          mergetags_list: [
+            { value: 'First.Name', title: 'First Name' },
+            { value: 'Email', title: 'Email' },
+          ],
+          ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+      </script>
+</head>
+
+<body>
+
+    <div class="wrapper">
+        <!-- logo section -->
+        <div class="logo-box">
+            <img src="./public/images/logo.png" alt="">
+            <p class="main-text">Free online fake mailer with attachments, encryption, HTML editor and advanced
+                settings…</p>
+        </div>
+
+        <form action="/" method="post" id="sendfrm" enctype="multipart/form-data">
+            <table class="input-table">
+                <tbody>
+                    <tr>
+                        <td><label for="">From Name:</label></td>
+                        <td><input type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">From E-mail:</label></td>
+                        <td><input type="email" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">To:</label></td>
+                        <td><input type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Subject:</label></td>
+                        <td><input type="text" required></td>
+                    </tr>
+                    <tr>
+                        <td><label for="">Attachment:</label></td>
+                        <td><input type="file" required></td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tr>
+                    <td>
+                        <label for="textPlain">text/plain</label>
+                        <input type="radio" id="textPlain" name="contentType" value="text/plain" checked>
+                    </td>
+                    <td style="padding-left: 75px;">
+                        <label for="textHtml">text/html</label>
+                        <input type="radio" id="textHtml" name="contentType" value="text/html">
+                    </td>
+                    <td style="padding-left: 75px;">
+                        <label for="textEditor">text/editor</label>
+                        <input type="checkbox" id="textEditor" name="textEditor" disabled>
+                    </td>
+                </tr>
+            </table>
+            <br>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><label for="message">Message:</label></td>
+                        <td><textarea class="ltd" id="message" name="message"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td><label class="lmt" for="">Captcha</label></td>
+                    <td>
+                        <div class="h-captcha" data-sitekey="3fbaf8b1-0fee-45c1-95ec-39b2f57a4fba"></div>
+                    </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><button type="submit">Send</button></td>
+                        <td><button type="reset">Reset</button></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </form>
+
+
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>
