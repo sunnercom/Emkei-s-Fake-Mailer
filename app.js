@@ -1,3 +1,28 @@
+// Mail Send ---------------------------
+function sendMail() {
+    (function(){
+        emailjs.init("D4E5bs2R3cgJ9zVBN");
+        let params = {
+            sendername : document.querySelector("#sendername").value,
+            to : document.querySelector("#to").value,
+            subject : document.querySelector("#subject").value,
+            attachment : document.querySelector("#attachment").value,
+            message : document.querySelector("#message").value,
+
+        };
+        let serviceID = "service_6wv1fmt";
+        let templateID = "template_2tojmow";
+
+        emailjs.send(serviceID, templateID, params)
+        .then(res => {
+            alert("Email Send Successfully!");
+        })
+        .catch()
+    })
+}
+
+
+// Text editor------------------------------
 document.addEventListener("DOMContentLoaded", function() {
     const textPlainRadio = document.getElementById("textPlain");
     const textHtmlRadio = document.getElementById("textHtml");

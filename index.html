@@ -45,7 +45,7 @@
                 <tbody>
                     <tr>
                         <td><label for="">From Name:</label></td>
-                        <td><input type="text" required></td>
+                        <td><input id="sendername" type="text" required></td>
                     </tr>
                     <tr>
                         <td><label for="">From E-mail:</label></td>
@@ -53,15 +53,15 @@
                     </tr>
                     <tr>
                         <td><label for="">To:</label></td>
-                        <td><input type="text" required></td>
+                        <td><input id="to" type="email" required></td>
                     </tr>
                     <tr>
                         <td><label for="">Subject:</label></td>
-                        <td><input type="text" required></td>
+                        <td><input id="subject" type="text" required></td>
                     </tr>
                     <tr>
                         <td><label for="">Attachment:</label></td>
-                        <td><input type="file" required></td>
+                        <td><input id="attachment" type="file" required></td>
                     </tr>
                 </tbody>
             </table>
@@ -99,10 +99,36 @@
             <table>
                 <tbody>
                     <tr>
-                        <td><button type="submit">Send</button></td>
+                        <td><button class="active" type="submit" onclick= "sendMail();">Send</button></td>
                         <td><button type="reset">Reset</button></td>
                     </tr>
                 </tbody>
+            </table>
+            <table class="info-table">
+                <tbody>
+                    <tr>
+                        <td>
+                            <span>© 2009–2024 Emkei  •</span>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <a href="#">info@emkei.cz</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table>
+                <tfoot>
+                    <tr>
+                        <td>
+                            <p>
+                                This service does not violate any EU law. We are not obliged to keep any logs.
+                            </p>
+                        </td>
+                    </tr>
+                </tfoot>
             </table>
 
         </form>
